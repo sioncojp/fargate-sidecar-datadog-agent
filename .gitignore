@@ -1,0 +1,15 @@
+_vendor
+.vendor
+vendor
+_vendor-*
+*.pid
+*.swp
+.DS_Store
+tmp/*
+bin/
+
+### Other ###
+.idea/
+
+### .gitkeep ###
+!.gitkeep
