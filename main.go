@@ -71,11 +71,9 @@ func Run() error {
 		case err := <-errCh:
 			return err
 		case <-doneCh:
-			break
+			return nil
 		}
 	}
-
-	return nil
 }
 
 // ExecCmd ...  Execute a command.
@@ -141,7 +139,9 @@ func SignalHandler(cmd *exec.Cmd, sigCh chan os.Signal, doneCh chan struct{}) {
 	for {
 		select {
 		case <-sigCh:
-			log.Println("shutdown...")
+			log.Println("shutdown after 5 second...")
+			time.Sleep(5 * time.Second)
+
 			doneCh <- struct{}{}
 		}
 	}
